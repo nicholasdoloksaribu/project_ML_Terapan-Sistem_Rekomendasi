@@ -1,6 +1,6 @@
-# 📊 Movie Recommendation System – Bagus Angkasawan Sumantri Putra
+# Laporan Proyek Machine Learning – Nicholas Doloksaribu
 
-## 📌 Project Overview
+## Project Overview
 
 Sistem rekomendasi adalah komponen penting dalam layanan digital, terutama pada platform streaming seperti Netflix. Dengan ribuan pilihan film, pengguna kerap kebingungan memilih tontonan. Oleh karena itu, dibutuhkan sistem cerdas untuk memberikan saran yang relevan.
 
@@ -8,31 +8,31 @@ Proyek ini membangun sistem rekomendasi film menggunakan dataset MovieLens. Dua 
 - **Content-Based Filtering**
 - **Collaborative Filtering (Neural Network)**
 
-> 📚 Referensi:
+> Referensi:
 > - [1] Gomez-Uribe, C.A., & Hunt, N. (2015). *The Netflix Recommender System: Algorithms, Business Value, and Innovation*. ACM Transactions on MIS.
 > - [2] Chui, M., et al. (2013). *Disruptive Technologies*. McKinsey Global Institute.
 
 ---
 
-## 💼 Business Understanding
+##  Business Understanding
 
-### ❓ Problem Statements
+### Problem Statements
 - Bagaimana membangun sistem rekomendasi berdasarkan konten film?
 - Bagaimana memodelkan preferensi pengguna dari histori rating?
 - Bagaimana mengevaluasi dan membandingkan kedua pendekatan tersebut?
 
-### 🎯 Goals
+###  Goals
 - Mengembangkan sistem rekomendasi berbasis konten.
 - Membangun collaborative filtering menggunakan deep learning.
 - Mengevaluasi performa kedua pendekatan dengan metrik yang sesuai.
 
-### 🛠️ Solution Approach
+###  Solution Approach
 - **Solusi 1:** TF-IDF + Cosine Similarity untuk content-based filtering.
 - **Solusi 2:** Neural Network Collaborative Filtering dengan embedding layer.
 
 ---
 
-## 📂 Data Understanding
+##  Data Understanding
 
 Dataset: [MovieLens Small Dataset](https://grouplens.org/datasets/movielens/latest/)
 
@@ -42,17 +42,17 @@ Dataset: [MovieLens Small Dataset](https://grouplens.org/datasets/movielens/late
 | `ratings.csv`| Rating pengguna terhadap film                |
 | `tags.csv`   | Tag deskriptif untuk masing-masing film      |
 
-### 🔍 Variabel Penting
+###  Variabel Penting
 - `userId`, `movieId`, `rating`, `title`, `genres`, `tag`
 
-### 📊 Exploratory Data Analysis
+###  Exploratory Data Analysis
 - Genre populer: Drama, Comedy
 - Rentang rating umum: 3–4
 - Adanya user/movie dengan rating yang ekstrem
 
 ---
 
-## 🧹 Data Preparation
+##  Data Preparation
 
 - Gabungkan `tags` + `genres` per film
 - TF-IDF Vectorizer → Content Feature
@@ -62,7 +62,7 @@ Dataset: [MovieLens Small Dataset](https://grouplens.org/datasets/movielens/late
 
 ---
 
-## 🤖 Modeling
+##  Modeling
 
 ### 1️⃣ Content-Based Filtering
 - TF-IDF + Cosine Similarity antar film
@@ -74,7 +74,7 @@ Dataset: [MovieLens Small Dataset](https://grouplens.org/datasets/movielens/late
 - Optimizer: Adam, Loss: Binary Crossentropy
 - Epoch: 10
 
-### ⚖️ Perbandingan
+### Perbandingan
 
 | Pendekatan              | Kelebihan                             | Kekurangan                            |
 |-------------------------|----------------------------------------|----------------------------------------|
@@ -83,9 +83,9 @@ Dataset: [MovieLens Small Dataset](https://grouplens.org/datasets/movielens/late
 
 ---
 
-## 📈 Evaluation
+##  Evaluation
 
-### 🧮 Metrik
+###  Metrik
 
 - **RMSE (Root Mean Squared Error)**  
   \[
@@ -95,25 +95,25 @@ Dataset: [MovieLens Small Dataset](https://grouplens.org/datasets/movielens/late
 - **Top-N Recommendation** (CBF):  
   Validasi manual berdasarkan relevansi output.
 
-### ✅ Hasil
+###  Hasil
 
 - **CBF:** Rekomendasi mirip dan masuk akal.
 - **Collaborative Filtering:** RMSE ~0.68 → Akurat dan stabil.
 
 ---
 
-## 🔚 Penutup
+##  Penutup
 
 Proyek ini menunjukkan bagaimana dua pendekatan sistem rekomendasi dapat diterapkan untuk meningkatkan pengalaman pengguna dalam memilih film.
 
-### 🔄 Pengembangan Selanjutnya
+###  Pengembangan Selanjutnya
 - Tambahkan interface Streamlit
 - Integrasi model ke backend dengan FastAPI
 - Uji coba dengan data pengguna real-time
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - Python, Pandas, NumPy
 - Scikit-learn, TensorFlow/Keras
 - Matplotlib, Seaborn
