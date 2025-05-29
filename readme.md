@@ -383,15 +383,13 @@ Evaluasi berpusat pada pengguna dilakukan dengan melihat kesesuaian rekomendasi 
 
 ### 4. Precision@K
 Content-Based Filtering (CBF)
-Untuk mengevaluasi pendekatan Content-Based Filtering, digunakan metrik Precision@K, yaitu rasio item yang relevan terhadap jumlah total item yang direkomendasikan sebanyak K. Metrik ini cocok digunakan karena sistem tidak memiliki label ground-truth eksplisit seperti dalam supervised learning.
+Untuk mengevaluasi pendekatan Content-Based Filtering, digunakan metrik Precision@K, yaitu rasio item yang relevan terhadap jumlah total item yang direkomendasikan sebanyak K.
 
 Definisi:
 
 Precision@K = (Jumlah item yang relevan) / K
 
 Relevansi ditentukan berdasarkan kemiripan genre atau tag antara film yang direkomendasikan dan film referensi yang disukai pengguna.
-
-### ✅ Contoh Evaluasi
 
 **Film referensi:**  
 🎬 *Pinocchio (1940)*  
@@ -454,4 +452,4 @@ Kedua model rekomendasi yang dikembangkan dalam proyek ini memiliki kelebihan da
 
 2. **Collaborative Filtering dengan Deep Learning** unggul dalam menyajikan rekomendasi yang lebih dipersonalisasi. Dengan mempelajari pola rating pengguna, sistem ini mampu menangkap preferensi yang lebih kompleks dan menyarankan film yang mungkin tidak secara eksplisit mirip, namun disukai oleh pengguna dengan pola yang serupa. Evaluasi menggunakan RMSE menghasilkan nilai 0.203, menunjukkan kinerja prediktif yang baik.
 
-Dari sisi implementasi bisnis, pendekatan yang menggabungkan kedua metode ini menjadi sistem hybrid recommendation dinilai paling optimal. Content-based filtering membantu dalam mengatasi tantangan cold-start dan mendukung eksplorasi film yang belum populer, sementara collaborative filtering memperkuat personalisasi dan meningkatkan keterlibatan pengguna
+Dari sisi implementasi bisnis, pendekatan yang menggabungkan kedua metode ini menjadi sistem hybrid recommendation dinilai paling optimal. Content-based filtering membantu dalam mengatasi tantangan cold-start dan mendukung eksplorasi film yang belum populer, sementara collaborative filtering memperkuat personalisasi dan meningkatkan keterlibatan pengguna.
