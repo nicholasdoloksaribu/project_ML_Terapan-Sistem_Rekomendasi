@@ -205,10 +205,23 @@ def recommend_content(title, top_n=5):
   - `algorithm='brute'`: Menggunakan brute force search untuk mencari tetangga terdekat
   - `n_neighbors=top_n+1`: Mencari top_n+1 tetangga terdekat (termasuk film itu sendiri)
 
+  
+Setelah melakukan ekstraksi fitur film menggunakan TF-IDF dari kolom `genres` dan `tag`, sistem rekomendasi dikembangkan menggunakan algoritma **K-Nearest Neighbors (KNN)** dengan **cosine similarity**. Model ini digunakan untuk mencari film yang memiliki kemiripan konten satu sama lain.
+
+Model dikembangkan menggunakan pustaka `sklearn.neighbors.NearestNeighbors` dengan parameter `n_neighbors=10` dan `metric='cosine'`. Pendekatan ini memungkinkan sistem memberikan rekomendasi tanpa perlu data historis dari pengguna lain, menjadikannya solusi efektif terhadap cold-start problem.
+
 
 **Contoh Hasil Rekomendasi:**
 
-Untuk film "Pinocchio (1940)", sistem merekomendasikan film-film animasi serupa yang memiliki genre dan tag yang mirip.
+#### Contoh Hasil Rekomendasi (Top-5) untuk Film *"Pinocchio (1940)"*
+
+| No | Judul Film                             | Genre                           |
+|----|----------------------------------------|---------------------------------|
+| 1  | Snow White and the Seven Dwarfs (1937) | Animation &#124; Children &#124; Fantasy |
+| 2  | Dumbo (1941)                           | Animation &#124; Children        |
+| 3  | Bambi (1942)                           | Animation &#124; Children &#124; Drama   |
+| 4  | Cinderella (1950)                      | Animation &#124; Children &#124; Romance |
+| 5  | Alice in Wonderland (1951)             | Animation &#124; Adventure &#124; Children |
 
 **Kelebihan:**
 - Tidak memerlukan data dari pengguna lain (cold start)
@@ -293,7 +306,7 @@ Untuk pengguna dengan ID 356, sistem menampilkan:
 1. Film dengan rating tertinggi yang telah diberikan oleh pengguna
 2. Top 10 rekomendasi film berdasarkan prediksi model
 
-**📌 Film dengan Rating Tertinggi dari Pengguna**
+**Film dengan Rating Tertinggi dari Pengguna**
 | Judul Film                                                         | Genre                                |
 |-------------------------------------------------------------------|--------------------------------------|
 | So I Married an Axe Murderer (1993)                               | Comedy &#124; Romance &#124; Thriller |
@@ -303,7 +316,7 @@ Untuk pengguna dengan ID 356, sistem menampilkan:
 | Battlestar Galactica: Razor (2007)                                | Action &#124; Drama &#124; Sci-Fi &#124; Thriller |
 
 
-**🔮 Top-10 Film Rekomendasi untuk User**
+**Top-10 Film Rekomendasi untuk User**
 
 | No | Judul Film                                                 | Genre                                |
 |----|------------------------------------------------------------|--------------------------------------|
@@ -368,6 +381,40 @@ Evaluasi berpusat pada pengguna dilakukan dengan melihat kesesuaian rekomendasi 
 
 - **Novelty**: Model collaborative filtering mampu merekomendasikan film yang mungkin belum pernah dilihat pengguna tetapi memiliki kemungkinan disukai berdasarkan preferensi mereka.
 
+### 4. Precision@K
+Content-Based Filtering (CBF)
+Untuk mengevaluasi pendekatan Content-Based Filtering, digunakan metrik Precision@K, yaitu rasio item yang relevan terhadap jumlah total item yang direkomendasikan sebanyak K. Metrik ini cocok digunakan karena sistem tidak memiliki label ground-truth eksplisit seperti dalam supervised learning.
+
+Definisi:
+
+Precision@K = (Jumlah item yang relevan) / K
+
+Relevansi ditentukan berdasarkan kemiripan genre atau tag antara film yang direkomendasikan dan film referensi yang disukai pengguna.
+
+### ✅ Contoh Evaluasi
+
+**Film referensi:**  
+🎬 *Pinocchio (1940)*  
+**Genre:** Animation | Children | Fantasy
+
+**Top 5 Rekomendasi Film:**
+
+| No | Judul Film                                  | Genre                             | Relevan |
+|----|---------------------------------------------|-----------------------------------|---------|
+| 1  | Cinderella (1950)                           | Animation \| Children \| Fantasy | ✅      |
+| 2  | Bambi (1942)                                | Animation \| Children \| Drama   | ✅      |
+| 3  | Fantasia (1940)                             | Animation \| Children \| Fantasy | ✅      |
+| 4  | Snow White and the Seven Dwarfs (1937)      | Animation \| Children \| Fantasy | ✅      |
+| 5  | Dumbo (1941)                                | Animation \| Children \| Drama   | ✅      |
+
+**Hasil:**
+Precision@5 = 5 / 5 = 100%
+
+- **Precision@K** memberikan gambaran seberapa relevan rekomendasi sistem terhadap preferensi pengguna.
+- Evaluasi dilakukan secara **kualitatif berdasarkan konten**, sesuai dengan prinsip content-based filtering.
+- Pendekatan ini berguna terutama ketika data eksplisit seperti rating pengguna belum tersedia atau terbatas (cold-start).
+
+
 ### Keterkaitan dengan Business Understanding
 
 #### Pernyataan Masalah 1: Sistem Rekomendasi berbasis Konten
@@ -407,4 +454,4 @@ Kedua model rekomendasi yang dikembangkan dalam proyek ini memiliki kelebihan da
 
 2. **Collaborative Filtering dengan Deep Learning** unggul dalam menyajikan rekomendasi yang lebih dipersonalisasi. Dengan mempelajari pola rating pengguna, sistem ini mampu menangkap preferensi yang lebih kompleks dan menyarankan film yang mungkin tidak secara eksplisit mirip, namun disukai oleh pengguna dengan pola yang serupa. Evaluasi menggunakan RMSE menghasilkan nilai 0.203, menunjukkan kinerja prediktif yang baik.
 
-Dari sisi implementasi bisnis, pendekatan yang menggabungkan kedua metode ini menjadi sistem hybrid recommendation dinilai paling optimal. Content-based filtering membantu dalam mengatasi tantangan cold-start dan mendukung eksplorasi film yang belum populer, sementara collaborative filtering memperkuat personalisasi dan meningkatkan keterlibatan pengguna.
+Dari sisi implementasi bisnis, pendekatan yang menggabungkan kedua metode ini menjadi sistem hybrid recommendation dinilai paling optimal. Content-based filtering membantu dalam mengatasi tantangan cold-start dan mendukung eksplorasi film yang belum populer, sementara collaborative filtering memperkuat personalisasi dan meningkatkan keterlibatan pengguna
