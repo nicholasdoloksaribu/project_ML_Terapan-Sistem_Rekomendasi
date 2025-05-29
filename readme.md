@@ -293,6 +293,32 @@ Untuk pengguna dengan ID 356, sistem menampilkan:
 1. Film dengan rating tertinggi yang telah diberikan oleh pengguna
 2. Top 10 rekomendasi film berdasarkan prediksi model
 
+**📌 Film dengan Rating Tertinggi dari Pengguna**
+| Judul Film                                                         | Genre                                |
+|-------------------------------------------------------------------|--------------------------------------|
+| So I Married an Axe Murderer (1993)                               | Comedy &#124; Romance &#124; Thriller |
+| Wallace & Gromit: The Best of Aardman Animation (1996)            | Adventure &#124; Animation &#124; Comedy |
+| Superbad (2007)                                                   | Comedy                               |
+| Lars and the Real Girl (2007)                                     | Comedy &#124; Drama                   |
+| Battlestar Galactica: Razor (2007)                                | Action &#124; Drama &#124; Sci-Fi &#124; Thriller |
+
+
+**🔮 Top-10 Film Rekomendasi untuk User**
+
+| No | Judul Film                                                 | Genre                                |
+|----|------------------------------------------------------------|--------------------------------------|
+| 1  | Star Wars: Episode IV - A New Hope (1977)                 | Action &#124; Adventure &#124; Sci-Fi |
+| 2  | Pulp Fiction (1994)                                       | Comedy &#124; Crime &#124; Drama &#124; Thriller |
+| 3  | Schindler's List (1993)                                   | Drama &#124; War                     |
+| 4  | Godfather, The (1972)                                     | Crime &#124; Drama                   |
+| 5  | Rear Window (1954)                                        | Mystery &#124; Thriller              |
+| 6  | Star Wars: Episode V - The Empire Strikes Back (1980)    | Action &#124; Adventure &#124; Sci-Fi |
+| 7  | Goodfellas (1990)                                         | Crime &#124; Drama                   |
+| 8  | Boondock Saints, The (2000)                               | Action &#124; Crime &#124; Drama &#124; Thriller |
+| 9  | In America (2002)                                         | Drama &#124; Romance                 |
+| 10 | Prestige, The (2006)                                      | Drama &#124; Mystery &#124; Sci-Fi &#124; Thriller |
+
+
 **Kelebihan:**
 - Mampu mengidentifikasi pola preferensi pengguna yang kompleks dan tidak langsung terlihat.
 - Dapat memberikan rekomendasi film yang beragam, termasuk yang tidak secara eksplisit terkait dengan riwayat tontonan pengguna.
